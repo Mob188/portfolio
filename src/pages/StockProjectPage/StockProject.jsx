@@ -20,32 +20,84 @@ export const StockProject = () => {
 
   return (
     <div className="flex mt-5 flex-col items-center gap-24">
-      <div className=" w-4/6  rounded-md">
-        <div className=" bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
+      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-target"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          </svg>
           <h1 className="text-xl">{t("stockProjTitle1")}</h1>
         </div>
-        <div className="p-5 bg-stone-300 dark:bg-slate-700 rounded-b-md">
+        <div className="p-5 ">
           <p>{t("stockProjDesc1")}</p>
         </div>
       </div>
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className=" bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
+      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-tool"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" />
+          </svg>
           <h1 className="text-xl">{t("stockProjTitle2")}</h1>
         </div>
-        <div className="p-5 bg-stone-300 dark:bg-slate-700 rounded-b-md">
+        <div className="p-5">
           <p>{t("stockProjDesc2")}</p>
         </div>
       </div>
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className=" bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
+      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+            <path d="M12 12l0 .01" />
+            <path d="M3 13a20 20 0 0 0 18 0" />
+          </svg>
           <h1 className="text-xl">{t("stockProjTitle3")}</h1>
         </div>
-        <div className="p-5 bg-stone-300 dark:bg-slate-700 rounded-b-md">
+        <div className="p-5">
           <p>{t("stockProjDesc3")}</p>
         </div>
       </div>
+      
+      <div className="h-px my-6 w-full bg-gradient-to-r from-transparent via-black dark:via-gray-600 to-transparent"></div>
 
       <div className="border border-black w-4/6 dark:border-white rounded-md">
         <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
