@@ -10,10 +10,10 @@ export const Skills = () => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-react"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon icon-tabler icons-tabler-outline icon-tabler-brand-react"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M6.306 8.711c-2.602 .723 -4.306 1.926 -4.306 3.289c0 2.21 4.477 4 10 4c.773 0 1.526 -.035 2.248 -.102" />
@@ -121,7 +121,7 @@ export const Skills = () => {
             x2="25"
             y2="75"
             stroke="#4B5320"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </svg>
         Maven

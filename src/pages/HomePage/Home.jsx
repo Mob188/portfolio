@@ -5,11 +5,10 @@ import { Technologies } from "../../components/technologies/technologies";
 import { Skills } from "../../components/skills/skills";
 import { ProjectsComponent } from "../../components/projectsComponent/projectsComponent";
 import { useTranslation } from "react-i18next";
-import { ModalRedirect } from "../../components/modals/modalRedirect";
+
 
 export const Home = () => {
   const { t } = useTranslation();
-  const [showRepos, setShowRepos] = useState(false);
 
   const initDivs = [
     {
@@ -104,10 +103,6 @@ export const Home = () => {
     e.preventDefault();
   };
 
-  const toggleRepos = (e) => {
-    e.preventDefault();
-    setShowRepos(!showRepos);
-  };
 
   return (
     <>
@@ -120,10 +115,10 @@ export const Home = () => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-replace"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon icon-tabler icons-tabler-outline icon-tabler-replace"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M3 3m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
@@ -136,7 +131,7 @@ export const Home = () => {
 
       <div
         className="relative left-1/2 -translate-x-1/2"
-        style={{ width: "880px" }}
+        style={{ width: "880px", paddingBottom: "800px" }}
         onMouseMove={handleDragOver}
       >
         {divs.map((div) => (

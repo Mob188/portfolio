@@ -14,14 +14,16 @@ import HistorialVentas from "../../assets/images/b18df852-2d55-40a6-bc7a-42967b7
 import HistorialDetalles from "../../assets/images/d60019e4-2496-4d61-9c7c-36ce73218017.jpg";
 import HistorialID from "../../assets/images/6290c75f-1c32-494c-a051-44f48a7e2138.jpg";
 import HistorialFecha from "../../assets/images/45e67158-6023-4d95-b3a8-781bd72c84f6.jpg";
+import { DivisorLine } from "../../components/divisorLine/divisorLine";
+import { ProjectDescription } from "../../components/projectDescription/projectDescription";
 
 export const StockProject = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex mt-5 flex-col items-center gap-24">
-      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
-        <div className="flex items-center gap-2">
+    <div className="flex flex-col pt-10 pb-10 items-center gap-5">
+      <div className=" w-4/6 px-5 gap-2">
+        <div className="flex items-center px-5 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -29,10 +31,10 @@ export const StockProject = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-target"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-target"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
@@ -41,13 +43,15 @@ export const StockProject = () => {
           </svg>
           <h1 className="text-xl">{t("stockProjTitle1")}</h1>
         </div>
-        <div className="p-5 ">
-          <p>{t("stockProjDesc1")}</p>
+        <div className="p-5">
+          <p className="text-balance">{t("stockProjDesc1")}</p>
         </div>
       </div>
 
-      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
-        <div className="flex items-center gap-2">
+      <DivisorLine />
+
+      <div className=" w-4/6  px-5 gap-2">
+        <div className="flex items-center px-5 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -55,10 +59,10 @@ export const StockProject = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-tool"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-tool"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" />
@@ -66,12 +70,14 @@ export const StockProject = () => {
           <h1 className="text-xl">{t("stockProjTitle2")}</h1>
         </div>
         <div className="p-5">
-          <p>{t("stockProjDesc2")}</p>
+          <p className="text-balance">{t("stockProjDesc2")}</p>
         </div>
       </div>
 
-      <div className=" w-4/6   bg-gray-400 dark:bg-[#131e2c] rounded-2xl shadow-xl border border-gray-700 p-5">
-        <div className="flex items-center gap-2">
+      <DivisorLine />
+
+      <div className=" w-4/6  p-5">
+        <div className="flex items-center  px-5 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -79,10 +85,10 @@ export const StockProject = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
@@ -93,234 +99,69 @@ export const StockProject = () => {
           <h1 className="text-xl">{t("stockProjTitle3")}</h1>
         </div>
         <div className="p-5">
-          <p>{t("stockProjDesc3")}</p>
+          <p className="text-balance">{t("stockProjDesc3")}</p>
         </div>
       </div>
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj1")} image={inicioBlanco} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj2")} image={inicioNegro} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj3")} image={AddProducto} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj4")} image={TableProducto} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj5")} image={EditProduct} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj6")} image={DeleteProduct} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj7")} image={SearchProducts} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj8")} image={NuevaVenta} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj9")} image={NuevaVentaList} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj10")} image={NuevaVentaProducts} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj11")} image={NuevaVentaSuccess} />
+
+      <DivisorLine />
+
+      <ProjectDescription title={t("stockProj12")} image={HistorialVentas} />
+
+      <DivisorLine />
       
-      <div className="h-px my-6 w-full bg-gradient-to-r from-transparent via-black dark:via-gray-600 to-transparent"></div>
+      <ProjectDescription title={t("stockProj13")} image={HistorialDetalles} />
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj1")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={inicioBlanco}
-            alt="Mi inicio"
-          />
-        </div>
-      </div>
+      <DivisorLine />
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj2")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={inicioNegro}
-            alt="Mi inicio oscuro"
-            width={1000}
-          />
-        </div>
-      </div>
+      <ProjectDescription title={t("stockProj14")} image={HistorialID} />
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj3")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={AddProducto}
-            alt="Añadir producto"
-            width={1000}
-          />
-        </div>
-      </div>
+      <DivisorLine />
 
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj3")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={AddProducto}
-            alt="Añadir producto"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj4")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={TableProducto}
-            alt="Table"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj5")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={EditProduct}
-            alt="Modal edit"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj6")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={DeleteProduct}
-            alt="Modal delete"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj7")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={SearchProducts}
-            alt="Search products"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj8")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={NuevaVenta}
-            alt="Nueva venta"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj9")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={NuevaVentaList}
-            alt="Lista nueva venta"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj10")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={NuevaVentaProducts}
-            alt="Productos nueva venta"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj11")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={NuevaVentaSuccess}
-            alt="Nueva venta exitosa"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj12")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={HistorialVentas}
-            alt="Historial ventas"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj13")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={HistorialDetalles}
-            alt="Detalles historial"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj14")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={HistorialID}
-            alt="Busqueda venta id"
-            width={1000}
-          />
-        </div>
-      </div>
-
-      <div className="border border-black w-4/6 dark:border-white rounded-md">
-        <div className="bg-stone-400 dark:bg-slate-800 p-3 rounded-t-md">
-          <p>{t("stockProj15")}</p>
-        </div>
-        <div className="bg-stone-300 dark:bg-slate-700 rounded-b-md">
-          <img
-            className="border border-black dark:border-white"
-            src={HistorialFecha}
-            alt="Busqueda venta fecha"
-            width={1000}
-          />
-        </div>
-      </div>
+      <ProjectDescription title={t("stockProj15")} image={HistorialFecha} />
     </div>
   );
 };

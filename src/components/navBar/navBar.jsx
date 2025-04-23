@@ -32,7 +32,7 @@ const NavBar = () => {
         <div className="flex flex-row w-52 justify-around">
           <svg
             onClick={() => toggleTheme()}
-            className="h-5 w-5 cursor-pointer dark:fill-white"
+            className="h-5 w-5 cursor-pointer dark:fill-white select-none"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
