@@ -12,8 +12,8 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
       <div className="flex flex-col min-h-screen">
-        <NavBar />
         <BrowserRouter>
+          <NavBar />
           <main className="flex-grow">
             <App />
           </main>

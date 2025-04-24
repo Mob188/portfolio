@@ -20,12 +20,13 @@ export const Projects = () => {
   return (
     <div className="flex mt-20 justify-center mx-20">
       <div className=" bg-gray-400 dark:bg-[#131e2c] flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 border border-white/20 rounded-xl backdrop-blur-md shadow-lg">
-        <div className="h-full p-3 flex flex-col items-center justify-center w-1/2">
+        <div className="h-full p-3 flex flex-col items-center justify-around w-1/2">
           <h1 className="text-xl font-bold">{t("projectTitle")}</h1>
+          
+          <p>{t("projectDesc")}</p>
           <p className="text-sm font-bold text-blue-700 mt-5">
             {t("projectSub")}
           </p>
-          <p>{t("projectDesc")}</p>
           <div className="flex w-full justify-around mt-5">
             <div onClick={handleShowRepos} className="cursor-pointer">
               <svg

@@ -5,10 +5,12 @@ import { Technologies } from "../../components/technologies/technologies";
 import { Skills } from "../../components/skills/skills";
 import { ProjectsComponent } from "../../components/projectsComponent/projectsComponent";
 import { useTranslation } from "react-i18next";
-
+import { Contact } from "../../components/contact/contact";
+import { useLocation } from "react-router-dom";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   const initDivs = [
     {
@@ -45,6 +47,7 @@ export const Home = () => {
     },
   ];
   const [divs, setDivs] = useState(initDivs);
+  const [divHeight, setDivHeight] = useState(660);
 
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData("divId", id);
@@ -76,15 +79,18 @@ export const Home = () => {
     });
   };
 
+  useEffect(() => {
+    setDivHeight(Math.max(...divs.map((div) => div.y + div.height)) + 20);
+  }, [divs]);
+
   const adjustPosition = (divs) => {
     const spacing = 10;
     const sortedDivs = [...divs].sort((a, b) => a.x - b.x || a.y - b.y);
     const containerWidth = 880;
-    console.log(divs);
+
     const updatedDivs = sortedDivs.map((div, index) => {
       let adjustedX = div.x;
       let adjustedY = div.y;
-      console.log(sortedDivs);
 
       for (let i = 0; i < index; i++) {
         const other = sortedDivs[i];
@@ -93,9 +99,10 @@ export const Home = () => {
           break;
         }
       }
-
+      setDivHeight(Math.max(adjustedY));
       return { ...div, x: adjustedX, y: adjustedY };
     });
+
     return updatedDivs;
   };
 
@@ -103,7 +110,15 @@ export const Home = () => {
     e.preventDefault();
   };
 
-
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   return (
     <>
       <Description />
@@ -131,7 +146,7 @@ export const Home = () => {
 
       <div
         className="relative left-1/2 -translate-x-1/2"
-        style={{ width: "880px", paddingBottom: "800px" }}
+        style={{ width: "880px", paddingBottom: `${divHeight}px` }}
         onMouseMove={handleDragOver}
       >
         {divs.map((div) => (
@@ -152,6 +167,8 @@ export const Home = () => {
           </div>
         ))}
       </div>
+
+      <Contact />
     </>
   );
 };
