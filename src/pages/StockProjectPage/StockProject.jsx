@@ -21,7 +21,7 @@ export const StockProject = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col pt-10 pb-10 items-center gap-5">
+    <div className="flex flex-col pt-20 pb-10 items-center gap-5">
       <div className=" w-4/6 px-5 gap-2">
         <div className="flex items-center px-5 gap-2">
           <svg
