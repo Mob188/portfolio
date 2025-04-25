@@ -1,7 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 export const Technologies = () => {
+
+  const { t } = useTranslation();
+  
   return (
     <>
-      <h1 className="text-lg font-bold">TECHONOLOGIES</h1>
+      <h1 className="text-lg font-bold">{t("technologies")}</h1>
       <div className="flex gap-5 m-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,28 +1,34 @@
 import { useTranslation } from "react-i18next";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { use } from "i18next";
 import { ChangeTheme } from "../../context/Context";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const { i18n } = useTranslation();
   const { t } = useTranslation();
   const { theme, toggleTheme } = useContext(ChangeTheme);
-  
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const changeLanguage = (idioma) => {
     i18n.changeLanguage(idioma);
     localStorage.setItem("language", idioma);
   };
 
-  const handleContact = () => {
-   
+  const handleHome = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0 });
+    }
   };
 
+ 
   return (
     <>
       <div className="w-full z-50 fixed h-10 dark:bg-slate-800 bg-gray-300 flex items-center place-content-center justify-between">
-        <Link to="/"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
           <div className="flex flex-row w-40 justify-around">
             <img
               className=" w-7 h-7 rounded-full border-2 border-black dark:border-white"
@@ -32,9 +38,13 @@ const NavBar = (props) => {
           </div>
         </Link>
         <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-row w-72 justify-around ">
-          <Link to="/"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>{t("navHome")}</Link>
+          <Link to="/" onClick={handleHome}>
+            {t("navHome")}
+          </Link>
           <Link to="/projects">{t("navProject")}</Link>
-          <Link to="/#contact">Contact</Link>
+          <Link to="/#contact">
+            {t("contact")}
+          </Link>
         </div>
         <div className="flex flex-row w-52 justify-around">
           <svg

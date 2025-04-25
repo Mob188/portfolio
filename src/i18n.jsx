@@ -85,6 +85,15 @@ const resources = {
       footerTitle: "This portfolio was built using React.",
 
       footerSub: "Click here to view the source code.",
+
+      
+      technologies: "TECHNOLOGIES",
+
+      skills: "SKILLS",
+
+      contact: "Contact",
+
+      contactSub: "Feel free to contact me with any questions!"
     },
   },
   es: {
@@ -172,6 +181,15 @@ const resources = {
       footerTitle: "Este portfolio fue desarrollado con React.",
 
       footerSub: "Hacé clic aquí para ver el código fuente.",
+
+      
+      technologies: "TECNOLOGÍAS",
+
+      skills: "HABILIDADES",
+
+      contact: "Contacto",
+
+      contactSub: "No dudes en contactarme para cualquier consulta!"
     },
   },
   pt: {
@@ -260,6 +278,14 @@ const resources = {
       footerTitle: "Este portfólio foi desenvolvido com React.",
 
       footerSub: "Clique aqui para ver o código fonte.",
+
+      technologies: "TECNOLOGIAS",
+
+      skills: "HABILIDADES",
+
+      contact: "Contato",
+
+      contactSub: "Fique à vontade para me contatar para qualquer dúvida!"
     },
   },
 };

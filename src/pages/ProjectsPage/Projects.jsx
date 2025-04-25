@@ -19,16 +19,15 @@ export const Projects = () => {
 
   return (
     <div className="flex mt-20 justify-center mx-20">
-      <div className=" bg-gray-400 dark:bg-[#131e2c] flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 border border-white/20 rounded-xl backdrop-blur-md shadow-lg">
+      <div className="  dark:bg-[#131e2c] flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 border border-white/20 rounded-xl backdrop-blur-md shadow-lg">
         <div className="h-full p-3 flex flex-col items-center justify-around w-1/2">
           <h1 className="text-xl font-bold">{t("projectTitle")}</h1>
-          
           <p>{t("projectDesc")}</p>
           <p className="text-sm font-bold text-blue-700 mt-5">
             {t("projectSub")}
           </p>
           <div className="flex w-full justify-around mt-5">
-            <div onClick={handleShowRepos} className="cursor-pointer">
+            <div title="Repository" onClick={handleShowRepos} className="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -36,10 +35,10 @@ export const Projects = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-presentation"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-presentation"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M3 4l18 0" />
@@ -49,7 +48,7 @@ export const Projects = () => {
                 <path d="M8 12l3 -3l2 2l3 -3" />
               </svg>
             </div>
-            <a href="/stockProject">
+            <a href="/stockProject" title="Showcase">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -57,10 +56,10 @@ export const Projects = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-file-orientation"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-file-orientation"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M14 3v4a1 1 0 0 0 1 1h4" />

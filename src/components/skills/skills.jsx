@@ -1,7 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 export const Skills = () => {
+
+  const { t } = useTranslation();
+
   return (
     <>
-      <h1 className="text-lg font-bold">SKILLS</h1>
+      <h1 className="text-lg font-bold">{t('skills')}</h1>
       <div className="flex gap-5 m-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
