@@ -17,8 +17,8 @@ createRoot(document.getElementById("root")).render(
           <main className="flex-grow">
             <App />
           </main>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </div>
     </ThemeProvider>
   </StrictMode>
