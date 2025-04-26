@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { ChangeTheme } from "../../context/Context";
+import  imagenPerfil  from "../../assets/images/perfil.png"
 
 export const Description = () => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ export const Description = () => {
     <div className="flex flex-col items-center">
       <img
         className="mt-16 w-40 h-40 rounded-full border-2 dark:border-white border-black"
-        src="https://media.licdn.com/dms/image/v2/D4D03AQG_loXefWWtGA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1667439866490?e=1750291200&v=beta&t=hrLAZVcPbmoQepgcUlTfkAeFf6FBUBSzsiQSnEKQ2q8"
+        src={imagenPerfil}
       />
       <h1 className="text-4xl mt-4">Marcelo Pardo</h1>
       <p className="text-lg">{t("homeDesc")}</p>

@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { use } from "i18next";
 import { ChangeTheme } from "../../context/Context";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import  imagenPerfil  from "../../assets/images/perfil.png"
 
 const NavBar = (props) => {
   const { i18n } = useTranslation();
@@ -32,7 +33,7 @@ const NavBar = (props) => {
           <div className="flex flex-row w-40 justify-around">
             <img
               className=" w-7 h-7 rounded-full border-2 border-black dark:border-white"
-              src="https://media.licdn.com/dms/image/v2/D4D03AQG_loXefWWtGA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1667439866490?e=1750291200&v=beta&t=hrLAZVcPbmoQepgcUlTfkAeFf6FBUBSzsiQSnEKQ2q8"
+              src={imagenPerfil}
             />
             <p className="ml-2">Marcelo Pardo</p>
           </div>
