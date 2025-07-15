@@ -18,7 +18,7 @@ export const Home = () => {
       ? [
           {
             id: 1,
-            x: 20,
+            
             y: 20,
             width: 360,
             height: 400,
@@ -26,7 +26,7 @@ export const Home = () => {
           },
           {
             id: 4,
-            x: 20,
+            
             y: 440, // 20 + 400 + 20
             width: 360,
             height: 100,
@@ -34,7 +34,7 @@ export const Home = () => {
           },
           {
             id: 2,
-            x: 20,
+           
             y: 560, // 440 + 100 + 20
             width: 360,
             height: 210,
@@ -42,7 +42,7 @@ export const Home = () => {
           },
           {
             id: 3,
-            x: 20,
+           
             y: 790, // 560 + 210 + 20
             width: 360,
             height: 350,
@@ -190,7 +190,7 @@ export const Home = () => {
         {divs.map((div) => (
           <div
             key={div.id}
-            className="border border-white/20 rounded-xl backdrop-blur-md sm:left-1/2 sm:-translate-x-1/2 shadow-lg p-5 flex flex-col items-center bg-gray-300 w-96 dark:bg-[#131e2c] outline-black dark:outline-white absolute z-10 cursor-pointer transition-transform"
+            className="border border-white/20 rounded-xl backdrop-blur-md shadow-lg p-5 flex flex-col items-center bg-gray-300 w-96 dark:bg-[#131e2c] outline-black dark:outline-white absolute z-10 cursor-pointer transition-transform"
             style={{
               transform: `translate(${div.x}px, ${div.y}px)`,
               width: `${div.width}px`,
