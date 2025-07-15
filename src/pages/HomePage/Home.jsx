@@ -11,41 +11,78 @@ import { useLocation } from "react-router-dom";
 export const Home = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const screenWidth = window.innerWidth;
 
-  const initDivs = [
-    {
-      id: 1,
-      x: 20,
-      y: 20,
-      width: 400,
-      height: 400,
-      content: <AboutMe />,
-    },
-    {
-      id: 4,
-      x: 430,
-      y: 20,
-      width: 400,
-      height: 100,
-      content: <ProjectsComponent />,
-    },
-    {
-      id: 2,
-      x: 20,
-      y: 430,
-      width: 400,
-      height: 210,
-      content: <Technologies />,
-    },
-    {
-      id: 3,
-      x: 430,
-      y: 130,
-      width: 400,
-      height: 350,
-      content: <Skills />,
-    },
-  ];
+  const initDivs =
+    screenWidth < 640
+      ? [
+          {
+            id: 1,
+            x: 20,
+            y: 20,
+            width: 360,
+            height: 400,
+            content: <AboutMe />,
+          },
+          {
+            id: 4,
+            x: 20,
+            y: 440, // 20 + 400 + 20
+            width: 360,
+            height: 100,
+            content: <ProjectsComponent />,
+          },
+          {
+            id: 2,
+            x: 20,
+            y: 560, // 440 + 100 + 20
+            width: 360,
+            height: 210,
+            content: <Technologies />,
+          },
+          {
+            id: 3,
+            x: 20,
+            y: 790, // 560 + 210 + 20
+            width: 360,
+            height: 350,
+            content: <Skills />,
+          },
+        ]
+      : [
+          {
+            id: 1,
+            x: 20,
+            y: 20,
+            width: 400,
+            height: 400,
+            content: <AboutMe />,
+          },
+          {
+            id: 4,
+            x: 430,
+            y: 20,
+            width: 400,
+            height: 100,
+            content: <ProjectsComponent />,
+          },
+          {
+            id: 2,
+            x: 20,
+            y: 430,
+            width: 400,
+            height: 210,
+            content: <Technologies />,
+          },
+          {
+            id: 3,
+            x: 430,
+            y: 130,
+            width: 400,
+            height: 350,
+            content: <Skills />,
+          },
+        ];
   const [divs, setDivs] = useState(initDivs);
   const [divHeight, setDivHeight] = useState(660);
 
@@ -119,6 +156,7 @@ export const Home = () => {
       }
     }
   }, [location]);
+
   return (
     <>
       <Description />
