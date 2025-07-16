@@ -10,3 +10,6 @@ html.dark {
   @apply bg-[#0b1522] text-white;
 }
 
+html, body {
+  overflow-x: hidden;
+}

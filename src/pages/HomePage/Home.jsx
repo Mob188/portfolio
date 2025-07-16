@@ -11,39 +11,50 @@ import { useLocation } from "react-router-dom";
 export const Home = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const screenWidth = window.innerWidth;
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [divHeight, setDivHeight] = useState(660);
 
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  console.log(screenWidth)
+  console.log((screenWidth-360))
+  console.log((screenWidth - 360) / 2)
   const initDivs =
     screenWidth < 640
       ? [
           {
             id: 1,
-            
+            x: (screenWidth - 360) / 2,
             y: 20,
             width: 360,
-            height: 400,
+            height: 420,
             content: <AboutMe />,
           },
           {
             id: 4,
-            
-            y: 440, // 20 + 400 + 20
+            x: (screenWidth - 360) / 2,
+            y: 460,
             width: 360,
             height: 100,
             content: <ProjectsComponent />,
           },
           {
             id: 2,
-           
-            y: 560, // 440 + 100 + 20
+            x: (screenWidth - 360) / 2,
+            y: 580,
             width: 360,
             height: 210,
             content: <Technologies />,
           },
           {
             id: 3,
-           
-            y: 790, // 560 + 210 + 20
+            x: (screenWidth - 360) / 2,
+            y: 810,
             width: 360,
             height: 350,
             content: <Skills />,
@@ -83,8 +94,16 @@ export const Home = () => {
             content: <Skills />,
           },
         ];
+
   const [divs, setDivs] = useState(initDivs);
-  const [divHeight, setDivHeight] = useState(660);
+
+  useEffect(() => {
+    setDivs(initDivs);
+  }, [screenWidth]); // actualiza divs si cambia tamaño pantalla
+
+  useEffect(() => {
+    setDivHeight(Math.max(...divs.map((div) => div.y + div.height)) + 20);
+  }, [divs]);
 
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData("divId", id);
@@ -98,49 +117,18 @@ export const Home = () => {
     setDivs((prev) => {
       const draggedDiv = prev.find((div) => div.id === parseInt(draggedId));
       const targetDiv = prev.find((div) => div.id === targetId);
-      let newPosDrag;
-      let newPosTarg;
 
       const newPosDivs = prev.map((div) => {
         if (div.id === parseInt(draggedId)) {
-          newPosDrag = { ...div, x: targetDiv.x, y: targetDiv.y };
-          return newPosDrag;
+          return { ...div, x: targetDiv.x, y: targetDiv.y };
         }
         if (div.id === targetId) {
-          newPosTarg = { ...div, x: draggedDiv.x, y: draggedDiv.y };
-          return newPosTarg;
+          return { ...div, x: draggedDiv.x, y: draggedDiv.y };
         }
         return div;
       });
-      return adjustPosition(newPosDivs);
+      return newPosDivs;
     });
-  };
-
-  useEffect(() => {
-    setDivHeight(Math.max(...divs.map((div) => div.y + div.height)) + 20);
-  }, [divs]);
-
-  const adjustPosition = (divs) => {
-    const spacing = 10;
-    const sortedDivs = [...divs].sort((a, b) => a.x - b.x || a.y - b.y);
-    const containerWidth = 880;
-
-    const updatedDivs = sortedDivs.map((div, index) => {
-      let adjustedX = div.x;
-      let adjustedY = div.y;
-
-      for (let i = 0; i < index; i++) {
-        const other = sortedDivs[i];
-        if (other.x === div.x && other.y < div.y && other.id !== div.id) {
-          adjustedY = other.y + other.height + spacing;
-          break;
-        }
-      }
-      setDivHeight(Math.max(adjustedY));
-      return { ...div, x: adjustedX, y: adjustedY };
-    });
-
-    return updatedDivs;
   };
 
   const handleDragOver = (e) => {
@@ -160,7 +148,7 @@ export const Home = () => {
   return (
     <>
       <Description />
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 items-center space-x-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -183,8 +171,11 @@ export const Home = () => {
       </div>
 
       <div
-        className="relative left-1/2 -translate-x-1/2"
-        style={{ width: "880px", paddingBottom: `${divHeight}px` }}
+        className="relative left-1/2 -translate-x-1/2 max-w-full"
+        style={{
+          width: screenWidth < 640 ? "100%" : "880px",
+          paddingBottom: `${divHeight}px`,
+        }}
         onMouseMove={handleDragOver}
       >
         {divs.map((div) => (
