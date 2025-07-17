@@ -6,7 +6,7 @@ import { Skills } from "../../components/skills/skills";
 import { ProjectsComponent } from "../../components/projectsComponent/projectsComponent";
 import { useTranslation } from "react-i18next";
 import { Contact } from "../../components/contact/contact";
-import { useLocation } from "react-router-dom";
+import { useFetcher, useLocation } from "react-router-dom";
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -14,16 +14,12 @@ export const Home = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [divHeight, setDivHeight] = useState(660);
 
-
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  console.log(screenWidth)
-  console.log((screenWidth-360))
-  console.log((screenWidth - 360) / 2)
   const initDivs =
     screenWidth < 640
       ? [
@@ -94,7 +90,6 @@ export const Home = () => {
             content: <Skills />,
           },
         ];
-
   const [divs, setDivs] = useState(initDivs);
 
   useEffect(() => {
@@ -117,18 +112,45 @@ export const Home = () => {
     setDivs((prev) => {
       const draggedDiv = prev.find((div) => div.id === parseInt(draggedId));
       const targetDiv = prev.find((div) => div.id === targetId);
+      let newPosDrag;
+      let newPosTarg;
 
       const newPosDivs = prev.map((div) => {
         if (div.id === parseInt(draggedId)) {
-          return { ...div, x: targetDiv.x, y: targetDiv.y };
+          newPosDrag = { ...div, x: targetDiv.x, y: targetDiv.y };
+          return newPosDrag;
         }
         if (div.id === targetId) {
-          return { ...div, x: draggedDiv.x, y: draggedDiv.y };
+          newPosTarg = { ...div, x: draggedDiv.x, y: draggedDiv.y };
+          return newPosTarg;
         }
         return div;
       });
-      return newPosDivs;
+      return adjustPosition(newPosDivs);
     });
+  };
+
+  const adjustPosition = (divs) => {
+    const spacing = 10;
+    const sortedDivs = [...divs].sort((a, b) => a.x - b.x || a.y - b.y);
+    const containerWidth = 880;
+
+    const updatedDivs = sortedDivs.map((div, index) => {
+      let adjustedX = div.x;
+      let adjustedY = div.y;
+
+      for (let i = 0; i < index; i++) {
+        const other = sortedDivs[i];
+        if (other.x === div.x && other.y < div.y && other.id !== div.id) {
+          adjustedY = other.y + other.height + spacing;
+          break;
+        }
+      }
+      setDivHeight(Math.max(adjustedY));
+      return { ...div, x: adjustedX, y: adjustedY };
+    });
+
+    return updatedDivs;
   };
 
   const handleDragOver = (e) => {
@@ -148,7 +170,7 @@ export const Home = () => {
   return (
     <>
       <Description />
-      <div className="flex justify-center mt-10 items-center space-x-2">
+      <div className="flex justify-center mt-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -174,6 +196,7 @@ export const Home = () => {
         className="relative left-1/2 -translate-x-1/2 max-w-full"
         style={{
           width: screenWidth < 640 ? "100%" : "880px",
+          paddingBottom: `${divHeight}px`,
           paddingBottom: `${divHeight}px`,
         }}
         onMouseMove={handleDragOver}
