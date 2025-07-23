@@ -12,7 +12,7 @@ export const Contact = () => {
   };
 
   return (
-    <div id="contact" className="flex justify-center pt-10 pb-16">
+    <div id="contact" className="scroll-mt-32 mt-10 flex justify-center pt-10 pb-16">
       <div className="flex flex-col gap-4 text-left max-w-xl w-full">
         <h1 className="text-3xl font-bold">{t("contact")}</h1>
         <p className="text-2xl text-gray-700">{t("contactSub")}</p>
@@ -32,7 +32,11 @@ export const Contact = () => {
           <p className="ml-5 text-lg text-blue-600">
             marcelopardo188@gmail.com
           </p>
-          <span title="Copiar" className="cursor-pointer select-none" onClick={handleCopy}>
+          <span
+            title="Copiar"
+            className="cursor-pointer select-none"
+            onClick={handleCopy}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

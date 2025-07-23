@@ -18,16 +18,20 @@ export const Projects = () => {
   };
 
   return (
-    <div className="flex mt-20 justify-center mx-20">
-      <div className="  dark:bg-[#131e2c] flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 border border-white/20 rounded-xl backdrop-blur-md shadow-lg">
-        <div className="h-full p-3 flex flex-col items-center justify-around w-1/2">
+    <div className="flex mt-20 justify-center mx-4 sm:mx-20 mb-20">
+      <div className="dark:bg-[#131e2c] flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 border border-white/20 rounded-xl backdrop-blur-md shadow-lg w-full max-w-5xl">
+        <div className="h-full p-4 flex flex-col items-center justify-around w-full md:w-1/2 text-center md:text-left">
           <h1 className="text-xl font-bold">{t("projectTitle")}</h1>
           <p>{t("projectDesc")}</p>
           <p className="text-sm font-bold text-blue-700 mt-5">
             {t("projectSub")}
           </p>
           <div className="flex w-full justify-around mt-5">
-            <div title="Repository" onClick={handleShowRepos} className="cursor-pointer">
+            <div
+              title="Repository"
+              onClick={handleShowRepos}
+              className="cursor-pointer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -72,11 +76,11 @@ export const Projects = () => {
           </div>
         </div>
 
-        <div className=" h-full w-1/2">
+        <div className="h-auto w-full md:w-1/2">
           <img
             src={Project1}
             alt="Stock project"
-            className="rounded-r-2xl h-full"
+            className="rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none w-full object-cover max-h-[300px] md:max-h-full"
           />
         </div>
       </div>
