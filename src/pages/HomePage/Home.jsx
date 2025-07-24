@@ -28,13 +28,13 @@ export const Home = () => {
             x: (screenWidth - 360) / 2,
             y: 20,
             width: 360,
-            height: 420,
+            height: 450,
             content: <AboutMe />,
           },
           {
             id: 4,
             x: (screenWidth - 360) / 2,
-            y: 460,
+            y: 490,
             width: 360,
             height: 100,
             content: <ProjectsComponent />,
@@ -42,7 +42,7 @@ export const Home = () => {
           {
             id: 2,
             x: (screenWidth - 360) / 2,
-            y: 580,
+            y: 610,
             width: 360,
             height: 210,
             content: <Technologies />,
@@ -50,7 +50,7 @@ export const Home = () => {
           {
             id: 3,
             x: (screenWidth - 360) / 2,
-            y: 810,
+            y: 840,
             width: 360,
             height: 350,
             content: <Skills />,
