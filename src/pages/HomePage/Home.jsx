@@ -94,17 +94,19 @@ export const Home = () => {
 
   useEffect(() => {
     setDivs(initDivs);
-  }, [screenWidth]); // actualiza divs si cambia tamaño pantalla
+  }, [screenWidth]);
 
   useEffect(() => {
     setDivHeight(Math.max(...divs.map((div) => div.y + div.height)) + 20);
   }, [divs]);
 
   const handleDragStart = (e, id) => {
+    if (screenWidth < 640) return;
     e.dataTransfer.setData("divId", id);
   };
 
   const handleDrop = (e, targetId) => {
+    if (screenWidth < 640) return;
     const draggedId = e.dataTransfer.getData("divId");
 
     if (draggedId == targetId) return;
@@ -154,6 +156,7 @@ export const Home = () => {
   };
 
   const handleDragOver = (e) => {
+    if (screenWidth < 640) return;
     e.preventDefault();
   };
 
@@ -167,40 +170,10 @@ export const Home = () => {
     }
   }, [location]);
 
-  const handleTouchStart = (e, id) => {
-    const touch = e.touches[0];
-    e.dataTransfer = { setData: () => {} }; // Evita errores con drag
-    handleDragStart({ dataTransfer: { setData: () => {} } }, id);
-    setCurrentDrag({ id, startX: touch.clientX, startY: touch.clientY });
-  };
-
-  const handleTouchMove = (e) => {
-    if (!currentDrag) return;
-    const touch = e.touches[0];
-    const dx = touch.clientX - currentDrag.startX;
-    const dy = touch.clientY - currentDrag.startY;
-
-    setDivs((prev) =>
-      prev.map((div) =>
-        div.id === currentDrag.id
-          ? { ...div, x: div.x + dx, y: div.y + dy }
-          : div
-      )
-    );
-    setCurrentDrag((prev) => ({
-      ...prev,
-      startX: touch.clientX,
-      startY: touch.clientY,
-    }));
-  };
-
-  const handleTouchEnd = () => {
-    setCurrentDrag(null);
-  };
-
   return (
     <>
       <Description />
+      {screenWidth>640 && 
       <div className="flex justify-center mt-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +194,7 @@ export const Home = () => {
           <path d="M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3" />
         </svg>
         <p>{t("DescMove")}</p>
-      </div>
+      </div>}
 
       <div
         className="relative left-1/2 -translate-x-1/2 max-w-full"
@@ -245,9 +218,6 @@ export const Home = () => {
             onDragStart={(e) => handleDragStart(e, div.id)}
             onDrop={(e) => handleDrop(e, div.id)}
             onDragOver={handleDragOver}
-            onTouchStart={(e) => handleTouchStart(e, div.id)}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
           >
             {div.content}
           </div>
