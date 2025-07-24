@@ -167,6 +167,37 @@ export const Home = () => {
     }
   }, [location]);
 
+  const handleTouchStart = (e, id) => {
+    const touch = e.touches[0];
+    e.dataTransfer = { setData: () => {} }; // Evita errores con drag
+    handleDragStart({ dataTransfer: { setData: () => {} } }, id);
+    setCurrentDrag({ id, startX: touch.clientX, startY: touch.clientY });
+  };
+
+  const handleTouchMove = (e) => {
+    if (!currentDrag) return;
+    const touch = e.touches[0];
+    const dx = touch.clientX - currentDrag.startX;
+    const dy = touch.clientY - currentDrag.startY;
+
+    setDivs((prev) =>
+      prev.map((div) =>
+        div.id === currentDrag.id
+          ? { ...div, x: div.x + dx, y: div.y + dy }
+          : div
+      )
+    );
+    setCurrentDrag((prev) => ({
+      ...prev,
+      startX: touch.clientX,
+      startY: touch.clientY,
+    }));
+  };
+
+  const handleTouchEnd = () => {
+    setCurrentDrag(null);
+  };
+
   return (
     <>
       <Description />
@@ -214,6 +245,9 @@ export const Home = () => {
             onDragStart={(e) => handleDragStart(e, div.id)}
             onDrop={(e) => handleDrop(e, div.id)}
             onDragOver={handleDragOver}
+            onTouchStart={(e) => handleTouchStart(e, div.id)}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {div.content}
           </div>
