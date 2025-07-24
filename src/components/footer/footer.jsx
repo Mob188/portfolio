@@ -39,8 +39,8 @@ export const Footer = () => {
         </g>
       </svg>
       <div>
-      <h1 className="text-xl">{t("footerTitle")}</h1>
-      <p className="text-lg">{t("footerSub")}</p>
+        <h1 className="text-xl">{t("footerTitle")}</h1>
+        <p className="text-lg">{t("footerSub")}</p>
       </div>
     </div>
   );

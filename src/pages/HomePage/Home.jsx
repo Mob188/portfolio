@@ -161,13 +161,20 @@ export const Home = () => {
   };
 
   useEffect(() => {
+    const scroll = () =>{
     if (location.hash) {
       const id = location.hash.substring(1);
       const element = document.getElementById(id);
       if (element) {
+        
         element.scrollIntoView({ behavior: "smooth" });
       }
+      
     }
+  }
+
+    const timeOut=setTimeout(scroll, 100);
+    return () => clearTimeout(timeOut);
   }, [location]);
 
   return (
