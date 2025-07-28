@@ -86,14 +86,20 @@ const resources = {
 
       footerSub: "Click here to view the source code.",
 
-      
       technologies: "TECHNOLOGIES",
 
       skills: "SKILLS",
 
       contact: "Contact",
 
-      contactSub: "Feel free to contact me with any questions!"
+      contactSub: "Feel free to contact me with any questions!",
+
+      projectTitle2: "Stock and Sales Management Project",
+
+      projectSub2: "TECHNOLOGIES USED: REACT.JS, SPRING BOOT, POSTGRESQL",
+
+      projectDesc2:
+        "Project focused on optimizing inventory control and the sales process.",
     },
   },
   es: {
@@ -177,19 +183,24 @@ const resources = {
 
       stockProj15: "Este es un ejemplo de búsqueda por fecha",
 
-      
       footerTitle: "Este portfolio fue desarrollado con React.",
 
       footerSub: "Hacé clic aquí para ver el código fuente.",
 
-      
       technologies: "TECNOLOGÍAS",
 
       skills: "HABILIDADES",
 
       contact: "Contacto",
 
-      contactSub: "No dudes en contactarme para cualquier consulta!"
+      contactSub: "No dudes en contactarme para cualquier consulta!",
+
+      projectTitle2: "Proyecto de gestión de stock y ventas",
+
+      projectSub2: "TECNOLOGÍAS UTILIZADAS: REACT.JS, SPRING BOOT, POSTGRESQL",
+
+      projectDesc2:
+        "Proyecto de gestión de stock y ventas enfocado en optimizar el control de inventarios y el proceso comercial.",
     },
   },
   pt: {
@@ -247,8 +258,7 @@ const resources = {
 
       stockProj5: "Esta é a janela de edição de um produto",
 
-      stockProj6:
-        "É assim que a janela de exclusão de um produto será exibida",
+      stockProj6: "É assim que a janela de exclusão de um produto será exibida",
 
       stockProj7:
         "A barra de pesquisa permite encontrar produtos pelo nome e funciona da seguinte forma",
@@ -274,7 +284,6 @@ const resources = {
 
       stockProj15: "Este é um exemplo de busca por data",
 
-        
       footerTitle: "Este portfólio foi desenvolvido com React.",
 
       footerSub: "Clique aqui para ver o código fonte.",
@@ -285,7 +294,14 @@ const resources = {
 
       contact: "Contato",
 
-      contactSub: "Fique à vontade para me contatar para qualquer dúvida!"
+      contactSub: "Fique à vontade para me contatar para qualquer dúvida!",
+
+      projectTitle2: "Projeto de controle de estoque e vendas",
+
+      projectSub2: "TECNOLOGIAS UTILIZADAS: REACT.JS, SPRING BOOT, POSTGRESQL",
+
+      projectDesc2:
+        "Projeto focado em otimizar o controle de estoque e o processo de vendas.",
     },
   },
 };
